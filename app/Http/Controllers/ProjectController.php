@@ -7,9 +7,15 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\ProjectResource;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+
+    public function show(Request $request, Project $project)
+    {
+        return new ProjectResource($project);
+    }
     
     public function store(StoreProjectRequest $request)
     {
